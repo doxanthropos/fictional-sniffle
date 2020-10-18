@@ -55,3 +55,12 @@
 
 ;; Use F9 to toggle centering
 (global-set-key (kbd "<f9>") 'center-window-mode)
+
+;; Toggle visual line mode and org-indent when in org mode
+;; found here: https://emacs.stackexchange.com/posts/22180/revisions
+;; `with-eval-after-load' macro was introduced in Emacs 24.x
+;; In older Emacsen, you can do the same thing with `eval-after-load'
+;; and '(progn ..) form.
+(with-eval-after-load 'org       
+  (setq org-startup-indented t) ; Enable `org-indent-mode' by default
+  (add-hook 'org-mode-hook #'visual-line-mode))
