@@ -64,3 +64,7 @@
 (with-eval-after-load 'org       
   (setq org-startup-indented t) ; Enable `org-indent-mode' by default
   (add-hook 'org-mode-hook #'visual-line-mode))
+
+;; Config for a Scheme REPL for SICP
+(setq geiser-mit-binary "/usr/local/bin/scheme")
+(setq geiser-active-implementations '(mit))
