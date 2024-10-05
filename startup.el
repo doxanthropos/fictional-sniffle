@@ -33,28 +33,8 @@
   (when (fboundp mode)
     (funcall mode -1)))
 
-;; center mode
-;; also from here:
-;; https://alexschroeder.ch/wiki/2020-08-26_Emacs_without_the_bling
-
-;; center the window by adding a very wide fringe
-(define-minor-mode center-window-mode
-  "Minor mode to center the window using wide fringes."
-  :init-value nil
-  :global t
-  :group 'editing-basics
-  (if (not center-window-mode)
-      (set-fringe-style nil);; default
-    (set-fringe-mode
-     (/ (- (frame-pixel-width)
-           (* (+ fill-column 4)
-	      (frame-char-width)))
-        2))))
-
-(center-window-mode 1)
-
-;; Use F9 to toggle centering
-(global-set-key (kbd "<f9>") 'center-window-mode)
+;; Use F9 to toggle line numbers
+(global-set-key (kbd "<f9>") 'global-display-line-numbers-mode)
 
 ;; Toggle visual line mode and org-indent when in org mode
 ;; found here: https://emacs.stackexchange.com/posts/22180/revisions
